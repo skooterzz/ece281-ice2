@@ -9,11 +9,20 @@
 --| USAF Academy, CO 80840           \____//____/_/  |_/_/   /_/  |_|
 --| 
 --| ---------------------------------------------------------------------------
---|
+--| FILENAME      : halfAdder.vhd
+--| AUTHOR(S)     : C3C Sangalge
+--| CREATED       : 01/21/2026
 --| DESCRIPTION   : This file implements a one bit half adder.
 --|
---+----------------------------------------------------------------------------
+--| DOCUMENTATION : None
 --|
+--+----------------------------------------------------------------------------
+--| REQUIRED FILES :
+--|
+--|    Libraries : ieee
+--|    Packages  : std_logic_1164, numeric_std, unisim
+--|    Files     : NONE
+--------------------------------------------------------------------------------
 --| NAMING CONVENSIONS :
 --|
 --|    i_<port name>            = on-chip input port
@@ -29,8 +38,9 @@ entity halfAdder is
   port(
 	i_A     : in  std_logic; -- 1-bit input port
 	i_B     : in  std_logic; 
-	o_S     : out std_logic  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
+	o_S     : out std_logic;  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
 	-- TODO:  Carry port
+	o_Cout     : out std_logic 	    
   ); -- the semicolon is here instead
 end halfAdder;
 
@@ -43,5 +53,6 @@ begin
 	-- *concurrent* signal assignments
 	o_S    <= i_A xor i_B;
 	-- TODO:  Carry signal assignment
-	
+	o_Cout   <= i_A and i_B;
+
 end halfAdder_arch;
